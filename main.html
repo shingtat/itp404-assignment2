@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Reddit Task </title>
+  <link rel = "stylesheet" href = "main.css" />
+</head>
+<body>
+  <h1>Ryan's ITP 404 Assignment 2 </h1>
+  <div id = "post_container">
+    <img id = "loading" src = "loading_icon.gif" />
+
+    <template id="subreddit-template">
+      {{#each posts}}
+      <div class="subreddit">
+        <p>Title: <a href = {{data.url}}>{{data.title}}</a></p>
+        <p>Score: {{data.score}}</p>
+        <p>Subreddit Subscribers: {{#numberFormat data.subreddit_subscribers}}{{/numberFormat}}</p>
+        {{#if data.num_comments}}
+          <p>Comments: {{#numberFormat data.num_comments}}{{/numberFormat}}</p>
+        {{else}}
+          <p>Comments: No comments</p>
+        {{/if}}
+        </br>
+      </div>
+      {{/each}}
+    </template>
+
+  </div>
+
+
+</body>
+<script src="jquery-3.3.1.js"></script>
+<script src="moment.js"></script>
+<script src="handlebars-v4.0.11.js"></script>
+<script src="main.js"></script>
+</html>
